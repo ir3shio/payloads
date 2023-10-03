@@ -1,0 +1,14 @@
+javascript:(function(){const changeUrl = () => {const domain = new URL(window.location.href).hostname;window.location.href=`https://web.archive.org/cdx/search/cdx?url=*.${domain}&fl=original&collapse=urlkey`;};changeUrl();})();
+
+
+javascript:(function(){var scripts=document.getElementsByTagName("script"),regex=/(?%3C=(\%22|\%27|\`))\/[a-zA-Z0-9_?&=\/\-\#\.]*(?=(\%22|\'|\%60))/g;const%20results=new%20Set;for(var%20i=0;i%3Cscripts.length;i++){var%20t=scripts[i].src;%22%22!=t&&fetch(t).then(function(t){return%20t.text()}).then(function(t){var%20e=t.matchAll(regex);for(let%20r%20of%20e)results.add(r[0])}).catch(function(t){console.log(%22An%20error%20occurred:%20%22,t)})}var%20pageContent=document.documentElement.outerHTML,matches=pageContent.matchAll(regex);for(const%20match%20of%20matches)results.add(match[0]);function%20writeResults(){results.forEach(function(t){document.write(t+%22%3Cbr%3E%22)})}setTimeout(writeResults,3e3);})();
+
+https://gtfobins.github.io
+
+https://web.archive.org/web/20210602164925/https://docs.google.com/document/d/1EIMxZ2_FD47aEYeG2JkOiRnIe8hBY_k0cuYgcjJeUV8/edit
+
+https://rules.sonarsource.com/
+
+https://alike-lantern-72d.notion.site/Web-Application-Penetration-Testing-Checklist-4792d95add7d4ffd85dd50a5f50659c6
+
+https://erev0s.com/tools/web-application-assessment-check-list/
