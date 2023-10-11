@@ -12,3 +12,91 @@ https://rules.sonarsource.com/
 https://alike-lantern-72d.notion.site/Web-Application-Penetration-Testing-Checklist-4792d95add7d4ffd85dd50a5f50659c6
 
 https://erev0s.com/tools/web-application-assessment-check-list/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import random
+import requests
+
+
+def send_request(proxy):
+    # Set the request headers
+    headers = {
+        "Content-Type": "text/plain;charset=UTF-8",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.5790.171 Safari/537.36",
+        "Accept": "*/*",
+        "Origin": "https://strawpoll.com",
+        "Referer": "https://strawpoll.com/"
+    }
+
+    # Set the request body
+    request_body = '''{"pv":"1326be7a-6759-11ee-812b-f8a8d7107e14","v":{"id":"","name":"","pollVotes":[{"id":"BJnXR20LKZv","value":1},{"id":"2ayLrq06qg4","value":1}],"voteType":"add","token":"","isEmbed":false},"h":false,"ht":false,"token":null}'''
+
+    # Set the proxy
+    proxies = {"http": proxy, "https": proxy}
+
+    # Send the request
+    try:
+        response = requests.post("https://api.strawpoll.com/v3/polls/w4nWrXvDxyA/vote", headers=headers, data=request_body, proxies=proxies, verify=False)
+        # Print the response status code
+        print(response.text)
+
+    except ConnectionError as e:
+        # Handle the exception
+        print("Unable: {}".format(proxy))
+
+def read_proxy_list():
+    """Reads a proxy list from the specified file."""
+
+    proxy_list = []
+    with open("proxy.txt", "r") as f:
+        for line in f:
+            proxy = line.strip()
+            if proxy:
+                proxy_list.append(proxy)
+
+    return proxy_list
+
+proxy_list = read_proxy_list()
+
+# Iterate through the proxy list and send the request using each proxy
+for proxy in proxy_list:
+    send_request(proxy)
