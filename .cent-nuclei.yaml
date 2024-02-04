@@ -11,4 +11,4 @@ exclude-files:
 
 # Add github urls
 community-templates:
-  - https://github.com/projectdiscovery/nuclei-templates.git
+  - https://github.com/projectdiscovery/nuclei-templates
