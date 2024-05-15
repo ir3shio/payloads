@@ -12,3 +12,4 @@ exclude-files:
 # Add github urls
 community-templates:
   - https://github.com/projectdiscovery/nuclei-templates
+  - https://github.com/ir3shio/nuclei
